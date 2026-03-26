@@ -1,0 +1,66 @@
+# ============================================================
+# EXAMPLE: Agent Profile for Jeremy Rickard
+# ============================================================
+# This is a sample showing how a configured profile looks.
+# Copy config/agent_profile.yaml and fill in your own details.
+
+agent:
+  name: "Jeremy Rickard"
+  phone: "(813) 298-9325"
+  email: "jeremy@excellecorerealestate.com"
+  website: "https://www.excellecorerealestate.com"
+  brokerage: "Excellecore Real Estate"
+  city: "Wesley Chapel"
+  state: "FL"
+  youtube_handle: "@excellecorerealestate"
+  booking_link: "https://www.excellecorerealestate.com/book"
+  credential_line: "Over a decade of experience helping buyers find their home in Tampa Bay."
+  team_description: "solo agent"
+
+channels:
+  own:
+    - handle: "@excellecorerealestate"
+      name: "Excellecore Real Estate"
+      db_name: "youtube_excellecore"
+
+  competitors:
+    - handle: "@TampaFloridaLiving"
+      name: "Tampa Florida Living"
+      db_name: "youtube_tampa_florida_living"
+    - handle: "@trulivingtampa"
+      name: "Tru Living Tampa"
+      db_name: "youtube_tru_tampa_living"
+
+  strategy:
+    - handle: "@ChannelJunkies"
+      name: "Channel Junkies"
+      db_name: "youtube_channel_junkies"
+
+paths:
+  knowledge_bases: "./knowledge_bases/vectors"
+  transcripts: "./knowledge_bases/transcripts"
+  manifest: "~/.real_estate_ai/manifest.json"
+
+content:
+  markets:
+    - "Wesley Chapel"
+    - "Land O' Lakes"
+    - "Lutz"
+    - "Tampa"
+
+  topics:
+    - "relocation"
+    - "first-time buyers"
+    - "market analysis"
+    - "neighborhoods"
+    - "house hacking"
+    - "seller tips"
+
+  voice_markers:
+    - "let me be transparent"
+    - "here's the reality"
+    - "from my experience"
+
+  never_say:
+    - "dream home"
+    - "perfect home"

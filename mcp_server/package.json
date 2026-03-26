@@ -1,0 +1,21 @@
+{
+  "name": "real-estate-agent-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Real Estate Agent AI Framework - wraps RAG, YouTube, content, CRM, and guide generation tools",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "yaml": "^2.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "tsx": "^4.19.0",
+    "@types/node": "^22.0.0"
+  }
+}

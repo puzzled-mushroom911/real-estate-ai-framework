@@ -1,0 +1,60 @@
+# ============================================================
+# Agent Profile Configuration
+# ============================================================
+# Fill this out with your information. This is the central
+# config file that all tools and agents reference.
+
+agent:
+  name: "Your Name"
+  phone: "(555) 123-4567"
+  email: "you@yourbrokerage.com"
+  website: "https://www.yourbrokerage.com"
+  brokerage: "Your Brokerage Name"
+  city: "Your City"
+  state: "FL"
+  booking_link: ""
+  credential_line: "Helping buyers find their perfect home in [Your Area]."
+  team_description: ""  # e.g., "husband-wife team", "solo agent", "team of 5"
+
+# Content sources to ingest (your own channels, podcasts, etc.)
+content_sources:
+  youtube:
+    - handle: "@YourChannel"
+      name: "Your Channel Name"
+      db_name: "youtube_my_channel"
+
+  # Add competitor channels to track (optional):
+  # competitors:
+  #   - handle: "@CompetitorHandle"
+  #     name: "Competitor Name"
+  #     db_name: "youtube_competitor"
+
+# Database paths (defaults work for most setups)
+paths:
+  knowledge_bases: "./knowledge_bases/vectors"
+  transcripts: "./knowledge_bases/transcripts"
+  manifest: "~/.real_estate_ai/manifest.json"
+
+# Content preferences
+content:
+  # Your markets / communities
+  markets:
+    - "Your City"
+    - "Nearby City 1"
+    - "Nearby City 2"
+
+  # Topics you frequently cover
+  topics:
+    - "relocation"
+    - "neighborhoods"
+    - "market updates"
+    - "first-time buyers"
+    - "investment properties"
+
+  # Words/phrases that are part of your brand voice
+  voice_markers:
+    - ""  # e.g., "boots on the ground", "let me be honest"
+
+  # Things to never say (brand constraints)
+  never_say:
+    - "dream home"  # generic realtor language

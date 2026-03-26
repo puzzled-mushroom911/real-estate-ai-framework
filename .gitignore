@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+mcp_server/dist/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Config with secrets
+config/.env
+.real_estate_ai/
+
+# Knowledge base data (large binary files)
+knowledge_bases/vectors/*/
+knowledge_bases/transcripts/
+!knowledge_bases/vectors/.gitkeep
+!knowledge_bases/vectors/youtube_channel_junkies/
+!knowledge_bases/documents/.gitkeep
+!knowledge_bases/books/
+
+# User data (private, not committed)
+my_data/youtube/
+my_data/podcasts/*.mp3
+my_data/podcasts/*.m4a
+my_data/podcasts/*.wav
+my_data/voice_samples/
+my_data/sales_history/*.csv
+my_data/leads/*.csv
+!my_data/**/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+*.egg-info/

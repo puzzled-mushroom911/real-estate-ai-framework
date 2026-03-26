@@ -1,0 +1,304 @@
+# LLM Onboarding Guide: Real Estate Agent Framework
+
+> This file is for you, Claude. When a user opens this project for the first time
+> (or asks for help setting up), use this guide to walk them through it.
+> The user is a real estate agent, not a developer. Assume zero terminal experience.
+
+## How to Detect a New User
+
+A new user will have one or more of these:
+- `config/agent_profile.yaml` still has placeholder values ("Your Name", "@YourChannel")
+- `config/.env` doesn't exist (only `.env.example`)
+- `knowledge_bases/vectors/` only has `.gitkeep` (no ingested content yet)
+- `.claude/memory/MEMORY.md` still has `{{SETUP_DATE}}` and `{{AGENT_NAME}}` placeholders
+- The user says anything like "just cloned this", "how do I start", "setting up", "first time"
+
+When you detect a new user, begin the guided setup below. Do NOT dump all steps at once.
+Walk them through ONE step at a time, confirm it worked, then move to the next.
+
+---
+
+## Guided Setup Flow
+
+### Phase 1: Check Prerequisites
+
+Before anything else, check what's already installed. Run these checks silently (don't ask permission):
+
+```bash
+command -v brew && echo "BREW: installed" || echo "BREW: missing"
+command -v python3 && python3 --version || echo "PYTHON: missing"
+command -v node && node --version || echo "NODE: missing"
+command -v yt-dlp && echo "YT-DLP: installed" || echo "YT-DLP: missing"
+command -v ffmpeg && echo "FFMPEG: installed" || echo "FFMPEG: missing"
+```
+
+Based on results, tell the user ONLY what they're missing. Example:
+
+> "You already have Python and Node installed. You just need yt-dlp and ffmpeg.
+> I can install those for you — want me to run `brew install yt-dlp ffmpeg`?"
+
+If Homebrew is missing, that needs to go first. Explain:
+
+> "Homebrew is like an app store for your terminal — it lets me install the tools
+> this framework needs. It's a one-time thing. Want me to walk you through installing it?"
+
+Homebrew requires user interaction (password prompt), so tell them:
+> "Paste this into Terminal and follow the prompts. It'll ask for your Mac password.
+> When it's done, close Terminal and reopen it, then come back to me."
+
+### Phase 2: Run Setup Script
+
+Once prerequisites are confirmed, run the setup script:
+
+```bash
+bash scripts/setup.sh
+```
+
+This takes 2-5 minutes. Let the user know what's happening:
+
+> "This is installing the Python packages that power the knowledge base and content tools,
+> building the server that connects me to your tools, and downloading the AI model
+> that processes your content. It's about 80 MB and only downloads once."
+
+If setup fails, check the error. Common issues:
+- Python version too old → `brew install python@3.12`
+- npm permission errors → `sudo npm install -g @anthropic-ai/claude-code` or fix npm prefix
+- Network timeout → retry
+
+### Phase 3: Agent Profile
+
+This is the most important step. Read `config/agent_profile.yaml` and tell the user:
+
+> "I need your information so I can personalize everything — emails, blog posts,
+> CRM operations, buyer responses. Let me ask you a few questions."
+
+Ask these one at a time (not all at once):
+1. What's your full name?
+2. What's your business phone number?
+3. What's your business email?
+4. What's your website URL?
+5. What brokerage are you with?
+6. What city and state do you primarily serve?
+7. Do you have a YouTube channel or podcast? (optional — not required)
+8. Do you have a booking/calendar link for clients?
+9. What's your credibility line? (Example: "Over 8 years helping buyers relocate to Tampa Bay.")
+10. How would you describe your team? (solo agent, husband-wife team, team of 3, etc.)
+
+After collecting answers, write the profile file for them. Also update:
+- `.claude/memory/MEMORY.md` — fill in the template variables
+
+Confirm: "Your profile is set up. Everything I generate — emails, blog posts, buyer responses —
+will use your name, your branding, and your credibility line."
+
+### Phase 4: API Keys
+
+Check if they have any of these. Don't push — just ask:
+
+> "A few optional integrations can make this more powerful. Do you use any of these?"
+
+- **GoHighLevel** (CRM) → need API key and location ID
+- **Anthropic API key** → only needed for advanced content generation
+- **Hostinger** → only if they host their website there
+- **Supabase** → only if they want a cloud database
+
+If they have keys, write them to `config/.env`. If not:
+
+> "No problem — the core features (knowledge base, content generation, emails,
+> buyer responses) all work without any API keys. You can add these later."
+
+### Phase 5: MCP Server Connection
+
+Check if `~/.mcp.json` exists. If it does, read it and check if `real-estate-agent` is already configured.
+
+If not configured, generate the correct config and either:
+- Write it directly to `~/.mcp.json` (if the file doesn't exist or only has other servers)
+- Show the user what to add (if the file exists with other config)
+
+The key entry is:
+```json
+"real-estate-agent": {
+  "command": "node",
+  "args": ["/absolute/path/to/real-estate-ai/mcp_server/dist/index.js"]
+}
+```
+
+Use the actual absolute path of this project directory.
+
+Tell them: "This connects me to the ~14 tools built into this framework — knowledge base
+search, content processing, CRM operations, and more. After adding this, restart
+Claude Code so I can pick up the new tools."
+
+### Phase 6: Additional MCP Servers
+
+Ask about each integration one at a time:
+
+**Hostinger:** "Do you host your website through Hostinger? If so, I can manage your
+website, DNS, and domains directly. I'd need your Hostinger API token."
+
+**Supabase:** "Do you want a cloud database for storing leads or analytics?
+Supabase has a free tier. If you have an account, I can connect to it."
+
+**Claude in Chrome:** "If you install the 'Claude in Chrome' browser extension,
+I can interact with web pages for you — read content, fill forms, scrape your
+Google reviews, research websites."
+
+**Gmail:** "I can connect to your Gmail to read, search, and draft emails.
+This connects through Claude.ai Settings > Integrations."
+
+**Google Calendar:** "I can check your schedule and create appointments.
+Same setup — Claude.ai Settings > Integrations."
+
+**Vercel:** "If you use Vercel for your website, I can deploy updates and
+check deployment status. Claude.ai Settings > Integrations."
+
+For each one they want, walk them through the specific setup steps.
+
+### Phase 7: Content & Data Onboarding
+
+This is the payoff. Start by asking what they have:
+
+> "Now let's give me something to work with. I can learn from several types of content
+> so that everything I write sounds like you and uses your real expertise.
+> Which of these do you have?"
+>
+> 1. **YouTube channel** — I'll download your video transcripts and make them searchable
+> 2. **Podcast episodes** — same idea, I'll extract and index the transcripts
+> 3. **Website content** — I'll scrape your site pages and learn your messaging
+> 4. **Google reviews or testimonials** — I'll pull these for social proof in content
+> 5. **Documents** (market reports, guides, PDFs) — I'll index them for reference
+> 6. **Sales data CSV** — I'll process your closed transactions for market expertise
+> 7. **Leads CSV** — I'll clean and import your contact list
+> 8. **Voice notes or audio samples** — I'll use these to match your speaking style
+
+Walk through each source they have:
+
+**YouTube channel:**
+```bash
+bash scripts/ingest-channel.sh @TheirHandle
+```
+
+While it runs, explain:
+> "I'm downloading transcripts from your recent videos, splitting them into
+> searchable chunks, and storing them in a local database on your computer.
+> This data never leaves your machine. When you ask me 'what have I said about
+> flood insurance?' I can find the exact quotes from your videos."
+
+**Website or reviews:**
+```bash
+bash scripts/scrape-web.sh https://their-website.com
+```
+
+Or use Claude in Chrome if installed — navigate to their Google Business listing
+and extract reviews directly.
+
+**Documents:**
+> "Drop any PDFs, market reports, or guides into the `knowledge_bases/documents/` folder
+> and I'll index those for reference when generating content."
+
+**CSVs (sales history, leads):**
+```bash
+bash scripts/process-csv.sh path/to/their-file.csv
+```
+
+Explain: "I'll clean up the data, standardize the formatting, and either import it
+to your CRM or store it for reference — your choice."
+
+**Voice samples:**
+> "Drop any audio files (voice memos, recordings) into `knowledge_bases/voice_samples/`.
+> I'll use these to better match your tone and speaking patterns in written content."
+
+After ingesting their first source, immediately demonstrate it:
+
+> "Let me show you it works. What's a topic you've covered or know well?"
+
+Then query the knowledge base and show them results from their own content.
+
+If they want to track a competitor channel (optional, brief):
+
+> "I can also ingest a competitor's channel if you want to compare content coverage.
+> Just give me their handle and I'll add it."
+
+### Phase 8: First Real Task
+
+Don't end on setup. Give them a win by doing something useful:
+
+> "Setup is done. Want me to do something real right now? Pick one:"
+>
+> 1. Search your knowledge base for a specific topic
+> 2. Generate a blog post from your content
+> 3. Write a 5-email welcome sequence for new leads
+> 4. Draft a response to a buyer question
+> 5. Clean and import a contact CSV
+
+Whatever they pick, do it using the framework's tools and agents. This proves the setup works and gives them immediate value.
+
+---
+
+## Ongoing Session Behavior
+
+### When the User Returns
+
+If the user has a completed profile (not placeholder values), don't re-run setup.
+Just greet them and be ready to work. Check their memory file for context on
+what they've been working on.
+
+### When They Ask "What Can You Do?"
+
+Don't list all tools. Instead, ask what they're working on and suggest relevant capabilities:
+
+- Need content from existing material → content repurposer agent
+- Want to nurture their list → nurture writer agent (email sequences, drip campaigns)
+- Got a voice note to process → voice processor agent
+- Managing contacts or pipeline → CRM agent
+- Responding to a buyer/seller → customer response agent/skill
+- Need a CMA → CMA generator skill
+- Cleaning up data → CSV tools
+
+### When They Hit an Error
+
+Common issues and fixes:
+
+| Error | Likely Cause | Fix |
+|---|---|---|
+| "yt-dlp: command not found" | Not installed | `brew install yt-dlp` |
+| "No module named chromadb" | Python packages not installed | `pip3 install chromadb sentence-transformers` |
+| MCP tools not available | Server not connected or not built | Check `~/.mcp.json`, run `cd mcp_server && npm run build` |
+| "No transcripts found" | Channel has no captions | Check that videos have auto-captions enabled |
+| ChromaDB permission error | Database locked | Restart Claude Code |
+| Python version error | Version too old | `brew install python@3.12` |
+
+### Content Generation Rules
+
+When generating ANY content, always:
+1. Query the knowledge base first for the agent's actual voice and opinions
+2. Use the template variables from their profile (name, phone, credential line, etc.)
+3. Follow the content-style rules in `.claude/rules/content-style.md`
+4. Use "buyers" not "families" (Fair Housing compliance)
+5. Never use "dream home," "perfect for families," or generic realtor language
+6. Apply CON-to-PRO structure when discussing neighborhoods or market conditions
+7. Include specific data over vague claims
+
+### Books and Strategy Reference
+
+The `knowledge_bases/books/` directory contains full-text marketing and strategy frameworks:
+
+- **Hormozi ($100M Offers, $100M Leads, Pricing Playbook, Ad Framework)** — use when generating offers, lead magnets, pricing strategy, or ad copy
+- **Brunson (DotCom Secrets, Traffic Secrets, Lead Magnet Strategy)** — use when building funnels, email sequences, or content strategy
+
+When the user asks for help with funnels, offers, emails, or content strategy,
+proactively search these books for relevant frameworks and apply them.
+
+---
+
+## File Reference
+
+| File | Purpose | When to Read |
+|---|---|---|
+| `config/agent_profile.yaml` | User's identity and preferences | Every session start |
+| `config/channels.yaml` | YouTube channels being tracked (if any) | When doing YouTube work |
+| `config/.env` | API keys and credentials | When connecting to external services |
+| `.claude/rules/content-style.md` | Brand voice and content rules | When generating any content |
+| `.claude/memory/MEMORY.md` | Persistent memory index | Every session start |
+| `knowledge_bases/books/` | Marketing strategy books | When generating strategy, offers, emails, funnels |
+| `knowledge_bases/prompts/` | Prompt templates for specific tasks | When running content pipelines |
+| `templates/` | Email and guide structure templates | When generating sequences or guides |

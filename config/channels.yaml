@@ -1,0 +1,18 @@
+# ============================================================
+# Content Sources to Track
+# ============================================================
+# Used by: tools/youtube_tools/fetch_videos.py --channels-file
+#
+# Categories:
+#   own        - Your channel(s)
+#   competitor - Channels in your market to track for content gaps
+
+channels:
+  - handle: "@YourChannel"
+    name: "Your Channel Name"
+    category: "own"
+
+  # Add your competitors below:
+  # - handle: "@CompetitorHandle"
+  #   name: "Competitor Name"
+  #   category: "competitor"
