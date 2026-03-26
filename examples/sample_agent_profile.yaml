@@ -1,36 +1,31 @@
 # ============================================================
-# EXAMPLE: Agent Profile for Jeremy Rickard
+# EXAMPLE: Agent Profile for Jane Smith
 # ============================================================
 # This is a sample showing how a configured profile looks.
 # Copy config/agent_profile.yaml and fill in your own details.
 
 agent:
-  name: "Jeremy Rickard"
-  phone: "(813) 298-9325"
-  email: "jeremy@excellecorerealestate.com"
-  website: "https://www.excellecorerealestate.com"
-  brokerage: "Excellecore Real Estate"
-  city: "Wesley Chapel"
+  name: "Jane Smith"
+  phone: "(555) 867-5309"
+  email: "jane@sunshinerealty.com"
+  website: "https://www.sunshinerealty.com"
+  brokerage: "Sunshine Realty Group"
+  city: "Tampa"
   state: "FL"
-  youtube_handle: "@excellecorerealestate"
-  booking_link: "https://www.excellecorerealestate.com/book"
-  credential_line: "Over a decade of experience helping buyers find their home in Tampa Bay."
+  booking_link: "https://calendly.com/jane-smith-realty"
+  credential_line: "Over 8 years helping buyers relocate to Tampa Bay."
   team_description: "solo agent"
 
-channels:
-  own:
-    - handle: "@excellecorerealestate"
-      name: "Excellecore Real Estate"
-      db_name: "youtube_excellecore"
+content_sources:
+  youtube:
+    - handle: "@janesmithrealty"
+      name: "Jane Smith Realty"
+      db_name: "youtube_jane_smith"
 
-  competitors:
-    - handle: "@TampaFloridaLiving"
-      name: "Tampa Florida Living"
-      db_name: "youtube_tampa_florida_living"
-    - handle: "@trulivingtampa"
-      name: "Tru Living Tampa"
-      db_name: "youtube_tru_tampa_living"
-
+  # competitors:
+  #   - handle: "@CompetitorChannel"
+  #     name: "Competitor Name"
+  #     db_name: "youtube_competitor"
 
 paths:
   knowledge_bases: "./knowledge_bases/vectors"
@@ -39,23 +34,22 @@ paths:
 
 content:
   markets:
-    - "Wesley Chapel"
-    - "Land O' Lakes"
-    - "Lutz"
     - "Tampa"
+    - "St. Petersburg"
+    - "Clearwater"
+    - "Brandon"
 
   topics:
     - "relocation"
     - "first-time buyers"
-    - "market analysis"
+    - "market updates"
     - "neighborhoods"
-    - "house hacking"
-    - "seller tips"
+    - "investment properties"
 
   voice_markers:
-    - "let me be transparent"
-    - "here's the reality"
-    - "from my experience"
+    - "here's the thing"
+    - "let me be honest"
+    - "from what I've seen"
 
   never_say:
     - "dream home"
