@@ -2,7 +2,7 @@
 
 **What this is:** An AI assistant that learns YOUR voice and content, wherever it lives. Feed it your YouTube videos, podcast episodes, reviews, website, and client conversations — and it writes content, emails, and responses that sound like you. Not generic AI output. You.
 
-**Who built it:** A real estate team ([Living in St. Pete](https://www.youtube.com/@livinginst-pete)) that uses this exact system to power their content, lead nurture, and client communication — packaged so any agent can use it.
+**Who built it:** Aaron & Aubrey Chand, a real estate team that uses this exact system to power their content, lead nurture, and client communication — packaged so any agent can use it.
 
 **What you need:** A Mac, about 20 minutes, and a Claude subscription.
 
@@ -522,7 +522,7 @@ Yes. Each person clones the repo, runs setup, and fills in their own profile.
 
 ## Credits
 
-Built by [Aaron Chand](https://www.youtube.com/@livinginst-pete) using:
+Built by Aaron & Aubrey Chand using:
 - **Russell Brunson** — Epiphany Bridge and Daily Seinfeld email frameworks
 - **Alex Hormozi** — Lead magnet, offer, and ad frameworks
 - **LangChain + ChromaDB** — Local AI search infrastructure

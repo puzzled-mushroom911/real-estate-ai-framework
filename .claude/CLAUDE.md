@@ -11,12 +11,12 @@ Replace these placeholders with your actual information during setup:
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `{{AGENT_NAME}}` | Your full name | Aaron Chand |
-| `{{AGENT_PHONE}}` | Business phone number | (727) 472-7555 |
-| `{{AGENT_EMAIL}}` | Business email | aaron@livinginstpetefl.com |
-| `{{AGENT_WEBSITE}}` | Your website URL | https://livinginstpetefl.com |
-| `{{AGENT_BROKERAGE}}` | Your brokerage name | Excellecore Real Estate |
-| `{{AGENT_CITY}}` | Primary city you serve | St. Petersburg |
+| `{{AGENT_NAME}}` | Your full name | Jane Smith |
+| `{{AGENT_PHONE}}` | Business phone number | (555) 867-5309 |
+| `{{AGENT_EMAIL}}` | Business email | jane@sunshinerealty.com |
+| `{{AGENT_WEBSITE}}` | Your website URL | https://www.sunshinerealty.com |
+| `{{AGENT_BROKERAGE}}` | Your brokerage name | Sunshine Realty Group |
+| `{{AGENT_CITY}}` | Primary city you serve | Tampa |
 | `{{AGENT_STATE}}` | State | Florida |
 | `{{AGENT_BOOKING_LINK}}` | Calendar booking URL | https://your-booking-link.com |
 | `{{AGENT_CREDENTIAL_LINE}}` | Your credibility statement | "In the past couple years, we've helped over 50 buyers relocate to Tampa Bay." |
