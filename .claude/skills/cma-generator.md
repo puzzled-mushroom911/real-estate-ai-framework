@@ -25,7 +25,7 @@ Use when asked to: create a CMA, analyze comps, evaluate a property's market pos
    - Seasonal factors affecting pricing
 
 4. **Generate YouTube-friendly summary** (if for content):
-   - Channel Junkies format: hook + data + personal take + CTA
+   - Content format: hook + data + personal take + CTA
    - Key talking points {{AGENT_NAME}} can reference on camera
    - Visual suggestions (charts, map screenshots, property photos)
 

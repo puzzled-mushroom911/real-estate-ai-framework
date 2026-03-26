@@ -473,7 +473,7 @@ These are specialized assistants for specific jobs. You don't need to configure 
 | **crm-agent** | Contact management, messaging, pipeline updates |
 | **customer-response** | Client replies that match your voice and communication style |
 
-### 12 Marketing & Strategy Books
+### 6 Marketing & Strategy Books
 
 Pre-loaded and searchable in `knowledge_bases/books/`. Claude references these when generating content, offers, emails, funnels, and strategy:
 
@@ -482,15 +482,9 @@ Pre-loaded and searchable in `knowledge_bases/books/`. Claude references these w
 | $100M Offers | Alex Hormozi |
 | $100M Leads | Alex Hormozi |
 | Pricing Playbook | Alex Hormozi |
-| Ad Framework | Alex Hormozi |
+| Ad Copywriting Framework | Alex Hormozi |
 | DotCom Secrets | Russell Brunson |
 | Traffic Secrets | Russell Brunson |
-| Lead Magnet & Squeeze Page Strategy | Russell Brunson |
-| Magnetic Marketing | Dan Kennedy |
-| Building a StoryBrand | Donald Miller |
-| The 1-Page Marketing Plan | Allan Dib |
-| Sell Like Crazy | Sabri Suby |
-| Overdeliver | Brian Kurtz |
 
 ### 2 Skills
 

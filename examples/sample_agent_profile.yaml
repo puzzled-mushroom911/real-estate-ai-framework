@@ -31,10 +31,6 @@ channels:
       name: "Tru Living Tampa"
       db_name: "youtube_tru_tampa_living"
 
-  strategy:
-    - handle: "@ChannelJunkies"
-      name: "Channel Junkies"
-      db_name: "youtube_channel_junkies"
 
 paths:
   knowledge_bases: "./knowledge_bases/vectors"

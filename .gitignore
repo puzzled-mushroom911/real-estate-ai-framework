@@ -14,7 +14,6 @@ config/.env
 knowledge_bases/vectors/*/
 knowledge_bases/transcripts/
 !knowledge_bases/vectors/.gitkeep
-!knowledge_bases/vectors/youtube_channel_junkies/
 !knowledge_bases/documents/.gitkeep
 !knowledge_bases/books/
 
