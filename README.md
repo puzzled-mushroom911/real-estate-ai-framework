@@ -8,7 +8,19 @@
 
 ---
 
-# Part 1: Getting Set Up
+# Quick Install (Plugin)
+
+If you already have Claude Code installed, you can add this as a plugin in one command:
+
+```
+/plugin install https://github.com/puzzled-mushroom911/real-estate-ai-framework
+```
+
+Then run the setup script and say "help me set up." See **[PLUGIN-SETUP.md](PLUGIN-SETUP.md)** for full plugin installation details.
+
+---
+
+# Part 1: Getting Set Up (Full Install)
 
 Claude Code can actually walk you through this setup interactively. Once you get to Step 5, just open Claude Code in this folder and say "help me set up" — it knows what to do.
 

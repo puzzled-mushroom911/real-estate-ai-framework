@@ -1,0 +1,21 @@
+{
+  "name": "real-estate-agent",
+  "description": "AI assistant for real estate agents — learns your voice from YouTube, podcasts, reviews, and client data. Powers content repurposing, lead nurture emails, CRM operations, CMAs, and client responses in your authentic style.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Aaron & Aubrey Chand",
+    "url": "https://livinginstpetefl.com"
+  },
+  "homepage": "https://github.com/puzzled-mushroom911/real-estate-ai-framework",
+  "repository": "https://github.com/puzzled-mushroom911/real-estate-ai-framework",
+  "license": "MIT",
+  "keywords": [
+    "real-estate",
+    "content-repurposing",
+    "lead-nurture",
+    "crm",
+    "youtube",
+    "rag",
+    "knowledge-base"
+  ]
+}
