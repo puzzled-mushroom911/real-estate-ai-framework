@@ -1,0 +1,9 @@
+{
+  "name": "real-estate-agent",
+  "description": "AI assistant for real estate agents. Learns your voice from your content and powers content repurposing, lead nurture emails, CMAs, and client responses.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Aaron & Aubrey Chand"
+  },
+  "license": "MIT"
+}

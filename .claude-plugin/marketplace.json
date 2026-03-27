@@ -1,0 +1,17 @@
+{
+  "name": "real-estate-tools",
+  "owner": {
+    "name": "Aaron & Aubrey Chand"
+  },
+  "metadata": {
+    "description": "AI tools for real estate agents"
+  },
+  "plugins": [
+    {
+      "name": "real-estate-agent",
+      "source": "./plugins/real-estate-agent",
+      "description": "AI assistant that learns your voice and powers content repurposing, lead nurture emails, CMAs, and client responses.",
+      "version": "1.0.0"
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 ---
 name: cma-generator
-description: Generate a Comparative Market Analysis summary for any property address. Use when asked to create a CMA, analyze comps, evaluate a property's market position, or produce a market comparison for content or client presentations.
+description: Generate a Comparative Market Analysis summary for any property address. Use when asked to create a CMA, analyze comps, evaluate a property's market position, or produce a market comparison.
 ---
 
 # CMA Generator
 
-Generate a Comparative Market Analysis summary for {{AGENT_NAME}} that can be used in YouTube content, client presentations, or lead nurture emails.
+Generate a Comparative Market Analysis summary that can be used in YouTube content, client presentations, or lead nurture emails.
 
 ## Process
 
@@ -25,21 +25,17 @@ Generate a Comparative Market Analysis summary for {{AGENT_NAME}} that can be us
    - Buyer demand indicators
    - Seasonal factors affecting pricing
 
-4. **Generate YouTube-friendly summary** (if for content):
-   - Content format: hook + data + personal take + CTA
-   - Key talking points {{AGENT_NAME}} can reference on camera
-   - Visual suggestions (charts, map screenshots, property photos)
-
-5. **Generate client-ready summary** (if for a client):
+4. **Generate summary:**
    - Professional but accessible language
    - Price range recommendation with confidence level
    - Strategic recommendations (pricing strategy for sellers, offer strategy for buyers)
+   - Key talking points for on-camera delivery (if for YouTube content)
 
 ## Output Format
+
 ```
 ## CMA Summary: [Property Address]
 ### Date: [YYYY-MM-DD]
-### Prepared by: {{AGENT_NAME}}, {{AGENT_BROKERAGE}}
 
 ### Subject Property
 [Key details]
@@ -54,9 +50,6 @@ Generate a Comparative Market Analysis summary for {{AGENT_NAME}} that can be us
 - Average DOM: XX days
 - Market trend: [Buyer's / Seller's / Balanced]
 
-### {{AGENT_NAME}}'s Take
+### Analysis & Recommendation
 [Personal analysis and recommendation]
-
-### YouTube Talking Points (if applicable)
-[3-5 bullet points for on-camera delivery]
 ```
