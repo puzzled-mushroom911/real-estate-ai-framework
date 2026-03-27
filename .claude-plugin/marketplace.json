@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "real-estate-tools",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owner": {
     "name": "Aaron & Aubrey Chand",
     "url": "https://github.com/puzzled-mushroom911/real-estate-ai-framework"
@@ -24,7 +24,7 @@
       "name": "real-estate-agent",
       "source": "./plugins/real-estate-agent",
       "description": "AI assistant that learns your voice from your content and powers content repurposing, lead nurture emails, CMAs, and client responses. Includes 5 agents, 5 skills, Python tools, and an MCP server.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "Aaron & Aubrey Chand"
       },
