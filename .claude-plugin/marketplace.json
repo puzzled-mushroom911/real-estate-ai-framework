@@ -1,17 +1,43 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "real-estate-tools",
+  "version": "1.0.0",
   "owner": {
-    "name": "Aaron & Aubrey Chand"
+    "name": "Aaron & Aubrey Chand",
+    "url": "https://github.com/puzzled-mushroom911/real-estate-ai-framework"
   },
   "metadata": {
-    "description": "AI tools for real estate agents"
+    "description": "AI assistant for real estate agents — learns your voice, repurposes content, writes nurture emails, generates CMAs, and drafts client responses.",
+    "repository": "https://github.com/puzzled-mushroom911/real-estate-ai-framework",
+    "license": "MIT",
+    "keywords": [
+      "real-estate",
+      "agents",
+      "skills",
+      "content-repurposing",
+      "crm",
+      "lead-nurture"
+    ]
   },
   "plugins": [
     {
       "name": "real-estate-agent",
       "source": "./plugins/real-estate-agent",
-      "description": "AI assistant that learns your voice and powers content repurposing, lead nurture emails, CMAs, and client responses.",
-      "version": "1.0.0"
+      "description": "AI assistant that learns your voice from your content and powers content repurposing, lead nurture emails, CMAs, and client responses. Includes 5 agents, 5 skills, Python tools, and an MCP server.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Aaron & Aubrey Chand"
+      },
+      "category": "productivity",
+      "homepage": "https://github.com/puzzled-mushroom911/real-estate-ai-framework",
+      "keywords": [
+        "real-estate",
+        "content-repurposing",
+        "crm",
+        "lead-nurture",
+        "cma",
+        "youtube"
+      ]
     }
   ]
 }
