@@ -528,7 +528,10 @@ Built by Aaron & Aubrey Chand using:
 - **LangChain + ChromaDB** — Local AI search infrastructure
 - **Model Context Protocol (MCP)** — Claude Code tool integration
 
-Also see: **[DESKTOP-SETUP.md](DESKTOP-SETUP.md)** — guide for using this with the Claude Desktop app instead of Terminal.
+Also see:
+- **[AGENT-GUIDE.md](AGENT-GUIDE.md)** — non-technical guide explaining what this is, why it matters, and what every piece does (start here if you're a real estate agent)
+- **[PLUGIN-SETUP.md](PLUGIN-SETUP.md)** — setup guide for Claude Desktop app, Claude plugins, and Co-Work team collaboration
+- **[DESKTOP-SETUP.md](DESKTOP-SETUP.md)** — detailed guide for using this with the Claude Desktop app instead of Terminal
 
 ---
 
