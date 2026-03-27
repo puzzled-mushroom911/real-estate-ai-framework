@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "real-estate-agent": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp_server/dist/index.js"]
+    }
+  }
+}
