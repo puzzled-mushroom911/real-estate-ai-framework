@@ -2,7 +2,7 @@
   "mcpServers": {
     "real-estate-agent": {
       "command": "node",
-      "args": ["./mcp_server/dist/index.js"]
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp_server/dist/index.js"]
     }
   }
 }
